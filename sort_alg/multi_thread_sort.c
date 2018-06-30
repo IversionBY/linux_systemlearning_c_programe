@@ -22,7 +22,7 @@ void mergesort(int array[],int start,int middle,int end);//数组合并
 void quicksort(int *array,int low,int high);
 
 
-void main(){
+int main(){
 
     int arr_test[]={1,2,4,3,3,70,9,6,5,7,8,20,27,34,0};
     //int arr_test[]={20,15,1,2,3,4,5,9,7,10,6,11,8,14,13,16,19,17,18,12};
@@ -41,14 +41,14 @@ void main(){
 
     pthread_t id1;//第一个线程
     pthread_t id2;//第二个线程
-    int result1,result2;
+    void *result1,*result2;
     if(ret1=pthread_create(&id1,NULL,(void *) &quicksort_begin,&(para1))!=0) 
         printf("id1 error!");
     if(ret2=pthread_create(&id1,NULL,(void *) &quicksort_begin,&(para2))!=0) 
         printf("id2 error!");
-    pthread_join(id1,&result1);
-    pthread_join(id2,&result2);
-    while(result1!=1&&result2!=1);
+    pthread_join(id1,result1);
+    pthread_join(id2,result2);
+    //while(result1!=1&&result2!=1);
     mergesort(arr_test,0,MAX/2-1,MAX-1);
     show(arr_test,MAX);
     return (0);
