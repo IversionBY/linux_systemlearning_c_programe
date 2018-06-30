@@ -67,7 +67,7 @@ int main(int argc,char *argv[])
                         filename = argv[2];
         //      printf("%s\n",filename);
                 do_cp(argv[1],filename);
-                free(filename);
+           
              }
              
         else{
@@ -81,13 +81,10 @@ int main(int argc,char *argv[])
                                              if(is_file(filename)){
                                                      filename2 = deal_with(filename,argv[2]);
                                                      do_cp(filename,filename2);
-                                                     free(filename);
-                                                     free(filename2);
+                                                     
                                              }else{
                                                      filename2=deal_path(argv[2],dirname->d_name);
                                                      mkdir(filename2,filebuf1.st_mode);
-                                                     free(filename);
-                                                     free(filename2);
                                                      continue;
                                              }
                                  }
